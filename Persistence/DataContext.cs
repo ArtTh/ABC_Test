@@ -1,6 +1,7 @@
 ﻿using System;
 using Domain;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Persistence
 {
@@ -14,6 +15,7 @@ namespace Persistence
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
             builder.Entity<City>()
                 .HasData(
                     new City { Id = 1, Name = "Berlin" },
@@ -30,6 +32,12 @@ namespace Persistence
                     new City { Id = 12, Name = "Moscow" },
                     new City { Id = 13, Name = "Stockholm" }
                 );
+
+            builder.Entity<Location>()
+                .HasOne(c => c.City);
+
+            builder.Entity<City>()
+               .HasMany(c => c.Location);
         }
     }
 }

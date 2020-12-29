@@ -1,9 +1,11 @@
+using System.Collections.Generic;
+
 namespace Domain
 {
     public class City
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public Location Location { get; set; }
+        public ICollection<Location> Location { get; set; }
     }
 }

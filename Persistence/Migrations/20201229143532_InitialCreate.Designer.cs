@@ -8,8 +8,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201229113110_SeedValues")]
-    partial class SeedValues
+    [Migration("20201229143532_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -110,19 +110,18 @@ namespace Persistence.Migrations
                     b.Property<int>("CityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Latitude")
-                        .HasColumnType("TEXT");
+                    b.Property<float>("Latitude")
+                        .HasColumnType("REAL");
 
-                    b.Property<decimal>("Longitude")
-                        .HasColumnType("TEXT");
+                    b.Property<float>("Longitude")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityId")
-                        .IsUnique();
+                    b.HasIndex("CityId");
 
                     b.ToTable("Locations");
                 });
@@ -130,8 +129,8 @@ namespace Persistence.Migrations
             modelBuilder.Entity("Domain.Location", b =>
                 {
                     b.HasOne("Domain.City", "City")
-                        .WithOne("Location")
-                        .HasForeignKey("Domain.Location", "CityId")
+                        .WithMany("Location")
+                        .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
