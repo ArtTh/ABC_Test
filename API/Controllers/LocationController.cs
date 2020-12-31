@@ -18,13 +18,12 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<LocationDTO>> Details(int id)
+        public async Task<ActionResult<LocationDetailDTO>> Details(int id)
         {
             return await Mediator.Send(new Details.Query { Id = id });
         }
 
         [HttpPost]
-        // [Authorize]
         public async Task<ActionResult<Unit>> Create(Create.Command command)
         {
             return await Mediator.Send(command);

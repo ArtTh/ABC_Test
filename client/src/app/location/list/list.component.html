@@ -1,0 +1,18 @@
+<div class="body-container">
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let items of locations" class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="card mt-5" id="{{items.id}}">
+          <img class="card-img-top" src="" title="iframe-map">
+          <div class="card-body">
+            <h4 class="card-title"><a routerLink="/location-details/{{items.id}}">{{items.name}}</a></h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{items.address}}</h6>
+            <p class="card-text">{{items.city}} </p>
+            <a href="#" class="card-link" routerLink="/location-details/{{items.id}}">Read More</a>
+            <a href="#" class="card-link" (click)="deleteData(items.id)">Delete location</a>
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+</div>

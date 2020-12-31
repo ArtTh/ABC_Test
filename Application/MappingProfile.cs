@@ -10,7 +10,8 @@ namespace Application.Locations
         {
             CreateMap<Location, LocationDTO>()
                 .ForMember(d => d.City, o => o.MapFrom(s => s.City.Name)).ReverseMap();
-
+            CreateMap<Location, LocationDetailDTO>()
+                         .ForMember(d => d.City, o => o.MapFrom(s => s.City.Id)).ReverseMap();
             CreateMap<City, CityDTO>().ReverseMap();
         }
     }

@@ -1,0 +1,31 @@
+<div class="body-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form [formGroup]="createForm" (ngSubmit)="createForm.valid && validate()" autocomplete="off">
+                    <div class="col-md-6">
+                        <app-text-input [formControl]="createForm.controls['name']" [label]="'Location Name'">
+                        </app-text-input>
+                        <app-text-input [formControl]="createForm.controls['address']" [label]="'Address'">
+                        </app-text-input>
+                        <app-text-input [formControl]="createForm.controls['longitude']" type="number"
+                            [label]="'Longitude'"></app-text-input>
+                        <app-text-input [formControl]="createForm.controls['latitude']" type="number"
+                            [label]="'Latitude'">
+                        </app-text-input>
+                        <div class="form-group">
+                            <label for="city" class=" col-form-label">City</label>
+                            <select formControlName="cityId" class="form-control">
+                                <option value="0" disabled>Select city...</option>
+                                <option *ngFor="let city of cities" [value]="city.id">
+                                    {{ city.name }}
+                                </option>
+                            </select>
+                        </div>
+                        <input class="btn btn-block" type="submit" value="Create">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

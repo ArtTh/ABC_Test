@@ -1,0 +1,43 @@
+<main>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 login-section-wrapper">
+          <div class="brand-wrapper">
+            <!-- <img src="assets/images/logo.svg" alt="logo" class="logo"> -->
+          </div>
+          <div class="login-wrapper my-auto">
+            <h1 class="login-title">Register</h1>
+            <form [formGroup]="registerForm"
+            (ngSubmit)="validate()"
+            autocomplete="off">
+              <app-text-input
+              [formControl]="registerForm.controls['displayName']"
+              [label]="'Display Name'"
+              placeholder="Your display name"
+            ></app-text-input>
+            <app-text-input
+            [formControl]="registerForm.controls['username']"
+            [label]="'Username'"
+            placeholder="ex. iitra"
+          ></app-text-input>
+              <app-text-input
+              [formControl]="registerForm.controls['email']"
+              [label]="'Email'"
+              placeholder="email@example.com"
+            ></app-text-input>
+            <app-text-input
+            [formControl]="registerForm.controls['password']"
+            [label]="'Password'"
+            type="password"
+            placeholder="Type your password"
+          ></app-text-input>
+              <input class="btn btn-block login-btn" type="submit" value="Register">
+            </form>
+          </div>
+        </div>
+        <div class="col-sm-6 px-0 d-none d-sm-block">
+          <img src="../../../assets/background.jpg" alt="login image" class="login-img">
+        </div>
+      </div>
+    </div>
+  </main>

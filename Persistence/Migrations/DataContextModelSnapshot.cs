@@ -176,10 +176,10 @@ namespace Persistence.Migrations
                     b.Property<int>("CityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<float>("Latitude")
+                    b.Property<double>("Latitude")
                         .HasColumnType("REAL");
 
-                    b.Property<float>("Longitude")
+                    b.Property<double>("Longitude")
                         .HasColumnType("REAL");
 
                     b.Property<string>("Name")

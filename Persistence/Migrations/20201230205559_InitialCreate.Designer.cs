@@ -9,8 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201229181705_AddedIdentity")]
-    partial class AddedIdentity
+    [Migration("20201230205559_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -178,10 +178,10 @@ namespace Persistence.Migrations
                     b.Property<int>("CityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<float>("Latitude")
+                    b.Property<double>("Latitude")
                         .HasColumnType("REAL");
 
-                    b.Property<float>("Longitude")
+                    b.Property<double>("Longitude")
                         .HasColumnType("REAL");
 
                     b.Property<string>("Name")

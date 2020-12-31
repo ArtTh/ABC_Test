@@ -1,0 +1,35 @@
+<main>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 login-section-wrapper">
+          <div class="brand-wrapper">
+            <!-- <img src="assets/images/logo.svg" alt="logo" class="logo"> -->
+          </div>
+          <div class="login-wrapper my-auto">
+            <h1 class="login-title">Log in</h1>
+            <form [formGroup]="loginForm"
+            (ngSubmit)="loginForm.valid && validate()"
+            autocomplete="off">
+              <app-text-input
+              [formControl]="loginForm.controls['email']"
+              [label]="'Email'"
+              placeholder="email@example.com"
+            ></app-text-input>
+            <app-text-input
+            [formControl]="loginForm.controls['password']"
+            [label]="'Password'"
+            type="password"
+            placeholder="Type your password"
+          ></app-text-input>
+              <input name="login" id="login" class="btn btn-block login-btn" type="submit" value="Login">
+            </form>
+            <a href="#!" class="forgot-password-link">Forgot password?</a>
+            <p class="login-wrapper-footer-text">Don't have an account? <a routerLink="/register" class="text-reset">Register here</a></p>
+          </div>
+        </div>
+        <div class="col-sm-6 px-0 d-none d-sm-block">
+          <img src="../../../assets/background.jpg" alt="login image" class="login-img">
+        </div>
+      </div>
+    </div>
+  </main>
