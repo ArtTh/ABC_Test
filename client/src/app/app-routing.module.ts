@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CreateComponent } from './location/create/create.component';
 import { DetailsComponent } from './location/details/details.component';
+import { EditComponent } from './location/edit/edit.component';
 import { ListComponent } from './location/list/list.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: 'location-details/:id',
         component: DetailsComponent,
+      },
+      {
+        path: 'edit-location/:id',
+        component: EditComponent,
       },
     ],
   },

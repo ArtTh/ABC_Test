@@ -1,17 +1,46 @@
 <div class="body-container">
   <div class="container">
     <div class="row">
+      <div class="col-md-12">
+        <button routerLink="/create-location" class="btn btn-primary pull-right">
+          <i class="fa fa-plus" aria-hidden="true"></i> 
+         <strong>Add</strong>   
+      </button>
+      </div>
       <div *ngFor="let items of locations" class="col-12 col-sm-8 col-md-6 col-lg-4">
         <div class="card mt-5" id="{{items.id}}">
           <img class="card-img-top" src="" title="iframe-map">
           <div class="card-body">
-            <h4 class="card-title"><a routerLink="/location-details/{{items.id}}">{{items.name}}</a></h4>
+            <h4 class="card-title"><a  (click)="viewData(details, items.id)">{{items.name}}</a></h4>
             <h6 class="card-subtitle mb-2 text-muted">{{items.address}}</h6>
             <p class="card-text">{{items.city}} </p>
-            <a href="#" class="card-link" routerLink="/location-details/{{items.id}}">Read More</a>
-            <a href="#" class="card-link" (click)="deleteData(items.id)">Delete location</a>
+
+            <button href="#" routerLink="/edit-location/{{items.id}}" class="btn btn-primary">
+              <i class="fa fa-edit" aria-hidden="true"></i> 
+             <strong>Edit</strong>   
+          </button>
+          <button (click)="deleteData(template)" class="btn btn-danger pull-right">
+            <i class="fa fa-remove" aria-hidden="true"></i> 
+           <strong>Delete</strong>   
+        </button>
           </div>
         </div>
+        <ng-template #template>
+          <div class="modal-body text-center">
+            <p>Do you want to confirm?</p>
+            <button type="button" class="btn btn-default" (click)="confirm(items.id)" >Yes</button>
+            <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+          </div>
+        </ng-template>
+
+        <ng-template #details>
+          <div class="modal-body text-center">
+            <!-- <p>{{location.name}}</p> -->
+           <p>{{locationDetail.name}}</p>
+           <p>{{locationDetail.address}}</p>
+           <p>{{locationDetail.longitude}} = {{locationDetail.latitude}}</p>
+          </div>
+        </ng-template>
     </div>
   </div>
   </div>

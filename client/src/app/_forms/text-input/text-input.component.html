@@ -1,7 +1,7 @@
 <div class="form-group mb-4">
     <label>{{label}}</label>
     <input [class.is-invalid]="ngControl.touched && ngControl.invalid" type={{type}} class="form-control"
-            [formControl]="ngControl.control" />
+            [formControl]="ngControl.control" [(ngModel)]="value"/>
 
             <div *ngIf="ngControl.control.errors?.required" class="invalid-feedback">Please enter {{label}}</div>
             <div *ngIf="ngControl.control.errors?.minlength" class="invalid-feedback">

@@ -30,8 +30,8 @@ export class CreateComponent implements OnInit {
 
   initializeForm() {
     this.createForm = this.fb.group({
-      name: ['', Validators.required],
-      address: ['', Validators.required],
+      name: ['', [Validators.required, Validators.maxLength(20)]],
+      address: ['', [Validators.required, Validators.maxLength(50)]],
       longitude: ['', Validators.required],
       latitude: ['', Validators.required],
       cityId: [0, Validators.required],
@@ -53,7 +53,7 @@ export class CreateComponent implements OnInit {
     this.locationService.create(this.locationData).subscribe(
       (response) => {
         this.toastr.success('Successfully created!');
-        this.router.navigateByUrl('/location');
+        this.router.navigateByUrl('/locations-list');
       },
       (error) => {
         this.toastr.error(error.error);

@@ -4,6 +4,8 @@ import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Locations } from '../_models/locations';
+import { Location } from '../_models/location';
+import { LocationEdit } from '../_models/locationedit';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +20,10 @@ export class LocationService {
     return this.http.get<Locations[]>(this.baseUrl + 'location');
   }
 
+  detail(id: number) {
+    return this.http.get<any>(this.baseUrl + `location/${id}`);
+  }
+
   create(model: any) {
     return this.http.post(this.baseUrl + 'location', model).pipe(
       map((response: Location) => {
@@ -26,8 +32,8 @@ export class LocationService {
     );
   }
 
-  edit(model: any) {
-    return this.http.put(this.baseUrl + 'location', model).pipe(
+  edit(id: number, model: any) {
+    return this.http.put(this.baseUrl + `location/${id}`, model).pipe(
       map((response: any) => {
         console.log(response);
       })

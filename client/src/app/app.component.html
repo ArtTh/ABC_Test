@@ -1,5 +1,11 @@
 <ng-container>
   <app-nav></app-nav>
+  <div *ngIf="(accountService.currentUser$ | async) === null" class="alert alert-info alert-dismissible fade show mt-3 text-center" role="alert">
+    Welcome to this small project. Please sign in or sign out to continue.
+  </div>
+  <div *ngIf="(accountService.currentUser$ | async) as user" class="alert alert-info alert-dismissible fade show mt-3 text-center" role="alert">
+    Go to Locations page
+  </div>
   <router-outlet></router-outlet>
   <!-- <app-footer></app-footer> -->
 </ng-container>

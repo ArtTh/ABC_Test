@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private accountService: AccountService
+    public accountService: AccountService
   ) {}
 
   ngOnInit(): void {

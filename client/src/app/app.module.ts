@@ -18,6 +18,7 @@ import { EditComponent } from './location/edit/edit.component';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { DetailsComponent } from './location/details/details.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 // import { ModalModule } from 'ngx-bootstrap';
 // import { AgmCoreModule } from '@agm/core';
 
@@ -46,6 +47,7 @@ import { DetailsComponent } from './location/details/details.component';
     //   apiKey: '',
     // }),
     NgxSpinnerModule,
+    ModalModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
